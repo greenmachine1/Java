@@ -108,12 +108,14 @@ public class MainActivity extends Activity {
 				second = Integer.parseInt(secondNumber.getText().toString());
 				third = Integer.parseInt(thirdNumber.getText().toString());
 				
-				int total = first + second + third;
+				//int total = first + second + third;
 				
 				//numberResult.setText("Total " +total);
 				
 				// will be calling a function from this that sends out all three int numbers
 				// decides which is the biggest and returns that number
+				
+				numberResult.setText(returnSortedNumbers(first, second, third));
 				
 			}
 		});
@@ -207,6 +209,15 @@ public class MainActivity extends Activity {
         */
     }
 
+    // this is a method used to sort the three numbers passed in
+    public String returnSortedNumbers(int first, int second, int third)
+    {
+    	//int tempBiggerNumber;
+    	
+    	String tempReturnString = first + " " + second + " " + third;
+    	
+    	return tempReturnString;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
