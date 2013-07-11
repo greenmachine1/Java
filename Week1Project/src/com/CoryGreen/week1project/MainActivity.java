@@ -36,6 +36,7 @@ public class MainActivity extends Activity {
 	int third;
 	
 	TextView nameResult;
+	TextView numberResult;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +95,25 @@ public class MainActivity extends Activity {
         numberDoneButton.setText("Done");
         ll.addView(numberDoneButton);
         
+        // this button will handle the done button for the numbers to be sorted
+        numberDoneButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// putting the numbers provided by the user into int values
+				first = Integer.parseInt(firstNumber.getText().toString());
+				second = Integer.parseInt(secondNumber.getText().toString());
+				third = Integer.parseInt(thirdNumber.getText().toString());
+				
+				int total = first + second + third;
+				
+				numberResult.setText("Total " +total);
+			}
+		});
         
+        
+        numberResult = new TextView(this);
+        ll.addView(numberResult);
         
         
         
