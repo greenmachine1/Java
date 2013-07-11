@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
 	LinearLayout ll;
 	LinearLayout.LayoutParams lp;
 	EditText et;
-	TextView result;
+	TextView nameResult;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +48,34 @@ public class MainActivity extends Activity {
         et = new EditText(this);
         ll.addView(et);
         
-        Button b = new Button(this);
-        b.setText("Done");
-        ll.addView(b);
+        Button nameDoneButton = new Button(this);
+        nameDoneButton.setText("Done");
+        ll.addView(nameDoneButton);
+        
+        
+        // this handles when the person clicks on done for when they are done entering in 
+        // their name
+        nameDoneButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				String entry = et.getText().toString();
+				
+				nameResult.setText(entry);
+				
+			}
+		});
+        
+        
+        
+        
+        
+        
+        
+        // adding a text view for the persons name
+        nameResult = new TextView(this);
+        ll.addView(nameResult);
+        
         
         // setting the ll to the contentView
  		setContentView(ll);
