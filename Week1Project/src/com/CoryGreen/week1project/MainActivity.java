@@ -61,7 +61,9 @@ public class MainActivity extends Activity {
         ll.addView(et);
         
         Button nameDoneButton = new Button(this);
-        nameDoneButton.setText("Done");
+        
+        // using my Java resource string for the word done! since I use it more than once :)
+        nameDoneButton.setText(R.string.done);
         ll.addView(nameDoneButton);
         
         
@@ -95,7 +97,7 @@ public class MainActivity extends Activity {
         ll.addView(thirdNumber);
         
         Button numberDoneButton = new Button(this);
-        numberDoneButton.setText("Done");
+        numberDoneButton.setText(R.string.done);
         ll.addView(numberDoneButton);
         
         // this button will handle the done button for the numbers to be sorted
