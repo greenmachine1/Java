@@ -108,13 +108,7 @@ public class MainActivity extends Activity {
 				second = Integer.parseInt(secondNumber.getText().toString());
 				third = Integer.parseInt(thirdNumber.getText().toString());
 				
-				//int total = first + second + third;
-				
-				//numberResult.setText("Total " +total);
-				
-				// will be calling a function from this that sends out all three int numbers
-				// decides which is the biggest and returns that number
-				
+				// calling on my returnSortedNumbers function
 				numberResult.setText(returnSortedNumbers(first, second, third));
 				
 			}
@@ -128,91 +122,19 @@ public class MainActivity extends Activity {
         
         // setting the ll to the contentView
  		setContentView(ll);
-        
-        
-        
-        
-        
-        
-     /*
-     // setting my layout parameters
-     		ll = new LinearLayout(this);
-     		ll.setOrientation(LinearLayout.VERTICAL);
-     		lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-     		ll.setLayoutParams(lp);
-     		
-     		
-     		
-     		TextView tv = new TextView(this);
-     		tv.setText("This is an example TextView");
-     		
-     		// adding "this is an example TextView to my main linear layout view"
-     		ll.addView(tv);
-     		
-     		
-     		// my edit text area
-     		et = new EditText(this);
-     		
-     		// sets a hint for the text edit area
-     		// accesses our Resource values (R.string)
-     		et.setHint("Type something here");
-     		
-     		et.getText();
-     		
-     		
-     		
-     		// adding my edit text to the linearLayout
-     		//ll.addView(et);
-     		
-     		// my button 
-     		Button b = new Button(this);
-     		
-     		// sets the button text to Do something
-     		b.setText("This is a button");
-     		
-     		// adding my button to the linear layout
-     		//ll.addView(b);
- 
-     		b.setOnClickListener(new View.OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					
-					// this puts the users entry into string format
-					String entry = et.getText().toString();
-					
-					// sets the result to equal that of the string
-					result.setText(entry);
-				}
-			});
-     		
-     		// creating a new linear layout
-     		LinearLayout form = new LinearLayout(this);
-     		
-     		// Horizontal is the default layout
-     		form.setOrientation(LinearLayout.HORIZONTAL);
-     		lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-     		form.setLayoutParams(lp);
-     		
-     		form.addView(et);
-     		form.addView(b);
-     		
-     		ll.addView(form);
-     		
-     		result = new TextView(this);
-     		ll.addView(result);
-     		
-     		
-     		// setting the ll to the contentView
-     		setContentView(ll);
-        */
     }
 
     // this is a method used to sort the three numbers passed in
     public String returnSortedNumbers(int first, int second, int third)
     {
-    	//int tempBiggerNumber;
+    	int number1;
+    	int number2;
+    	int number3;
+    	
+    	for(int i = 0; i < 3; i++)
+    	{
+    		
+    	}
     	
     	String tempReturnString = first + " " + second + " " + third;
     	
