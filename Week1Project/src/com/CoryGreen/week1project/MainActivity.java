@@ -23,6 +23,8 @@ public class MainActivity extends Activity {
 	
 	LinearLayout ll;
 	LinearLayout.LayoutParams lp;
+	EditText et;
+	TextView result;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class MainActivity extends Activity {
      		
      		
      		// my edit text area
-     		EditText et = new EditText(this);
+     		et = new EditText(this);
      		
      		// sets a hint for the text edit area
      		// accesses our Resource values (R.string)
@@ -52,7 +54,7 @@ public class MainActivity extends Activity {
      		
      		et.getText();
      		
-     		Editable valueOfText = et.getText();
+     		
      		
      		// adding my edit text to the linearLayout
      		//ll.addView(et);
@@ -65,13 +67,18 @@ public class MainActivity extends Activity {
      		
      		// adding my button to the linear layout
      		//ll.addView(b);
-     		TextView result = new TextView(this);
+ 
      		b.setOnClickListener(new View.OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					
+					// this puts the users entry into string format
+					String entry = et.getText().toString();
+					
+					// sets the result to equal that of the string
+					result.setText(entry);
 				}
 			});
      		
@@ -80,7 +87,7 @@ public class MainActivity extends Activity {
      		
      		// Horizontal is the default layout
      		form.setOrientation(LinearLayout.HORIZONTAL);
-     		
+     		lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
      		form.setLayoutParams(lp);
      		
      		form.addView(et);
@@ -88,8 +95,7 @@ public class MainActivity extends Activity {
      		
      		ll.addView(form);
      		
-     		
-     		result.setLayoutParams(lp);
+     		result = new TextView(this);
      		ll.addView(result);
      		
      		
