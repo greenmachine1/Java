@@ -18,9 +18,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.LinearLayout.LayoutParams;
 
 public class MainActivity extends Activity {
 	
+	// defining outside params
 	LinearLayout ll;
 	LinearLayout.LayoutParams lp;
 	EditText et;
@@ -29,7 +31,27 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+      
+        // setting up the layout of my program
+        ll = new LinearLayout(this);
+        ll.setOrientation(LinearLayout.VERTICAL);
+        lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        ll.setLayoutParams(lp);
         
+        
+        // Here Ill ask the user to provide their name
+        
+        
+        
+     // setting the ll to the contentView
+ 		setContentView(ll);
+        
+        
+        
+        
+        
+        
+     /*
      // setting my layout parameters
      		ll = new LinearLayout(this);
      		ll.setOrientation(LinearLayout.VERTICAL);
@@ -101,7 +123,7 @@ public class MainActivity extends Activity {
      		
      		// setting the ll to the contentView
      		setContentView(ll);
-        
+        */
     }
 
 
