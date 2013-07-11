@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.text.Editable;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -33,7 +34,7 @@ public class MainActivity extends Activity {
      		lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
      		ll.setLayoutParams(lp);
      		
-     		Editable valueOfText;
+     		
      		
      		TextView tv = new TextView(this);
      		tv.setText("This is an example TextView");
@@ -49,7 +50,9 @@ public class MainActivity extends Activity {
      		// accesses our Resource values (R.string)
      		et.setHint("Type something here");
      		
-     		valueOfText = et.getText();
+     		et.getText();
+     		
+     		Editable valueOfText = et.getText();
      		
      		// adding my edit text to the linearLayout
      		//ll.addView(et);
@@ -58,10 +61,19 @@ public class MainActivity extends Activity {
      		Button b = new Button(this);
      		
      		// sets the button text to Do something
-     		b.setText("Do something");
+     		b.setText("This is a button");
      		
      		// adding my button to the linear layout
      		//ll.addView(b);
+     		TextView result = new TextView(this);
+     		b.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
      		
      		// creating a new linear layout
      		LinearLayout form = new LinearLayout(this);
@@ -75,6 +87,10 @@ public class MainActivity extends Activity {
      		form.addView(b);
      		
      		ll.addView(form);
+     		
+     		
+     		result.setLayoutParams(lp);
+     		ll.addView(result);
      		
      		
      		// setting the ll to the contentView
