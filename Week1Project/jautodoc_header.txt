@@ -1,0 +1,9 @@
+/*
+ * Project		${project_name}
+ * 
+ * Package		${package_name}
+ * 
+ * @author		${author}
+ * 
+ * date			${date}
+ */
