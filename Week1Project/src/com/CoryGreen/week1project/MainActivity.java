@@ -40,10 +40,19 @@ public class MainActivity extends Activity {
         
         
         // Here Ill ask the user to provide their name
+        TextView nameTextView = new TextView(this);
+        nameTextView.setText("Please enter in your name here");
+        ll.addView(nameTextView); // adding the nameTextView to ll
         
+        // adding the name field to the view
+        et = new EditText(this);
+        ll.addView(et);
         
+        Button b = new Button(this);
+        b.setText("Done");
+        ll.addView(b);
         
-     // setting the ll to the contentView
+        // setting the ll to the contentView
  		setContentView(ll);
         
         
