@@ -35,6 +35,8 @@ public class MainActivity extends Activity {
 	int second;
 	int third;
 	
+	String name;
+	
 	TextView nameResult;
 	TextView numberResult;
 	
@@ -69,9 +71,10 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				String entry = et.getText().toString();
+				// putting the users name into a string
+				name = et.getText().toString();
 				
-				nameResult.setText("Ok "+entry+", now enter in 3 random numbers to sort.");
+				nameResult.setText("Ok "+name+", now enter in 3 random numbers to sort.");
 				
 			}
 		});
@@ -107,7 +110,11 @@ public class MainActivity extends Activity {
 				
 				int total = first + second + third;
 				
-				numberResult.setText("Total " +total);
+				//numberResult.setText("Total " +total);
+				
+				// will be calling a function from this that sends out all three int numbers
+				// decides which is the biggest and returns that number
+				
 			}
 		});
         
