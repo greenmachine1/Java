@@ -25,7 +25,16 @@ public class MainActivity extends Activity {
 	// defining outside params
 	LinearLayout ll;
 	LinearLayout.LayoutParams lp;
+	
 	EditText et;
+	EditText firstNumber;
+	EditText secondNumber;
+	EditText thirdNumber;
+	
+	int first;
+	int second;
+	int third;
+	
 	TextView nameResult;
 	
     @Override
@@ -61,20 +70,32 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				String entry = et.getText().toString();
 				
-				nameResult.setText(entry);
+				nameResult.setText("Ok "+entry+", now enter in 3 random numbers to sort.");
 				
 			}
 		});
         
-        
-        
-        
-        
-        
-        
         // adding a text view for the persons name
         nameResult = new TextView(this);
         ll.addView(nameResult);
+        
+        
+        // adding my number fields
+        firstNumber = new EditText(this);
+        ll.addView(firstNumber);
+        
+        secondNumber = new EditText(this);
+        ll.addView(secondNumber);
+        
+        thirdNumber = new EditText(this);
+        ll.addView(thirdNumber);
+        
+        Button numberDoneButton = new Button(this);
+        numberDoneButton.setText("Done");
+        ll.addView(numberDoneButton);
+        
+        
+        
         
         
         // setting the ll to the contentView
