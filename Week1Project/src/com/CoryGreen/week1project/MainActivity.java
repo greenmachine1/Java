@@ -11,7 +11,6 @@ package com.CoryGreen.week1project;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.text.Editable;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -53,7 +52,7 @@ public class MainActivity extends Activity {
         
         // Here Ill ask the user to provide their name
         TextView nameTextView = new TextView(this);
-        nameTextView.setText("Please enter in your name here");
+        nameTextView.setText(R.string.enter);
         ll.addView(nameTextView); // adding the nameTextView to ll
         
         // adding the name field to the view
@@ -133,6 +132,7 @@ public class MainActivity extends Activity {
     	int number2 = 0;
     	int number3 = 0;
     	
+    	// this doesnt work as intended.  Still need to focus on.
     	for(int i = 0; i < 2; i++)
     	{
     		if(first > second)
@@ -170,8 +170,8 @@ public class MainActivity extends Activity {
     		
     	}
     	
-    	
-    	String tempReturnString = number1 + " " + number2 + " " + number3;
+    	// creating my return string
+    	String tempReturnString = "Your numbers " + name +" are " + number1 + " " + number2 + " " + number3;
     	
     	return tempReturnString;
     }
