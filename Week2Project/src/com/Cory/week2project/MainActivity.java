@@ -9,6 +9,8 @@
  */
 package com.Cory.week2project;
 
+import org.json.JSONObject;
+
 import json.Json;
 import android.os.Bundle;
 import android.app.Activity;
@@ -28,7 +30,10 @@ public class MainActivity extends Activity {
 		ll.setLayoutParams(lp);
 		
 		TextView tv = new TextView(this);
-		tv.setText(Json.readJSON("Jackson"));
+		
+		String temporaryString = Json.readJSON("Jackson");
+		
+		tv.setText(temporaryString);
 		
 		ll.addView(tv);
 		
