@@ -34,4 +34,33 @@ public class Json {
 		}
 		return guitarObject;
 	}
+	
+	
+	
+	public static String readJSON(String selected){
+		String result, model, type, price;
+		
+		JSONObject object = buildJSON();
+		
+		try {
+			model = object.getJSONObject("json").getJSONObject(selected).getString("model");
+			type = object.getJSONObject("json").getJSONObject(selected).getString("type");
+			price = object.getJSONObject("json").getJSONObject(selected).getString("price");
+			
+			result = "Model: "+ model + "\r\n" 
+					+"Type: " + type + "\r\n"
+					+"Price: "	+ price + "\r\n";
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result = e.toString();
+		}		
+		
+		
+		return result;
+	}
+	
+	
+	
+	
 }

@@ -9,15 +9,31 @@
  */
 package com.Cory.week2project;
 
+import json.Json;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.LinearLayout.LayoutParams;
 
 public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		LinearLayout ll = new LinearLayout(this);
+		LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		ll.setLayoutParams(lp);
+		
+		TextView tv = new TextView(this);
+		tv.setText(Json.readJSON("Jackson"));
+		
+		ll.addView(tv);
+		
+		
+		setContentView(ll);
 	}
 
 	@Override
