@@ -9,11 +9,14 @@
  */
 package com.Cory.week2project;
 
+import java.lang.reflect.Array;
+
 import org.json.JSONObject;
 
 import json.Json;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,6 +35,19 @@ public class MainActivity extends Activity {
 		TextView tv = new TextView(this);
 		
 		String temporaryString = Json.readJSON("Jackson");
+		
+		temporaryString.contains("$");
+		
+		
+		char[] newArray = temporaryString.toCharArray();
+		
+		
+		
+		
+		
+		if(temporaryString.contains("$")){
+			Log.i("Yes", "It does contain $");
+		}
 		
 		tv.setText(temporaryString);
 		
