@@ -13,7 +13,7 @@ public enum Guitars {
 	private final String type;
 	private final String price;
 	
-	
+	// constructor for Guitars
 	private Guitars(String model, String type, String price){
 		this.model = model;
 		this.type = type;
