@@ -16,7 +16,9 @@ package com.Cory.week2project;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -28,6 +30,10 @@ public class MainActivity extends Activity {
 	LinearLayout.LayoutParams lp;
 	
 	EditText amountField;
+	Button enterButton;
+	
+	float amountEntered;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,9 +55,25 @@ public class MainActivity extends Activity {
 		ll.addView(amountField);
 		
 		// creating a search for guitar button
-		Button enterButton = new Button(this);
+		enterButton = new Button(this);
 		enterButton.setText("Search for guitar");
 		ll.addView(enterButton);
+		
+		// my on click listener for my enterButton
+		enterButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// casting the amountEntered into a float value
+				amountEntered = Float.valueOf(amountField.getText().toString()).floatValue();
+
+			}
+		});
+		
+		if(amountEntered > 900.00)
+		{
+			
+		}
 		
 		
 		
