@@ -35,6 +35,7 @@ public class MainActivity extends Activity {
 	
 	float amountEntered;
 	String nameOfGuitarSelected;
+	String temporaryGuitarNames;
 	String[] guitarNames = {"Jackson", "Fender", "Gibson", "Ibanez"};
 	
 	@Override
@@ -70,15 +71,27 @@ public class MainActivity extends Activity {
 				// casting the amountEntered into a float value
 				amountEntered = Float.valueOf(amountField.getText().toString()).floatValue();
 		
-				
 				for(int i = 0; i < guitarNames.length; i++)
 				{
+					float tempPriceFloat = Float.valueOf(Json.getPrice(guitarNames[i])).floatValue();
 					
+					Log.i("Yup", "" + tempPriceFloat);
+					if(amountEntered >= tempPriceFloat)
+					{
+						temporaryGuitarNames = Json.readJSON(guitarNames[i]);
+						Log.i("Ok", "" + temporaryGuitarNames);
+					}
 				}
+				
 			}
 		});
 
+		//Log.i("Ok", "" + temporaryGuitarNames);
 		
+		
+		TextView availableGuitarText = new TextView(this);
+		availableGuitarText.setText(temporaryGuitarNames);
+		ll.addView(availableGuitarText);
 		
 		
 		//String temporaryString = Json.readJSON("Jackson");
