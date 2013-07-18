@@ -1,12 +1,4 @@
-/*
- * Project		Week2Project
- * 
- * Package		com.Cory.week2project
- * 
- * @author		Cory Green
- * 
- * date			Jul 16, 2013
- */
+/** Automatically generated file. DO NOT MODIFY */
 package com.Cory.week2project;
 
 public final class BuildConfig {
