@@ -17,7 +17,6 @@ package com.Cory.week2project;
 import json.Json;
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +31,7 @@ public class MainActivity extends Activity {
 	
 	EditText amountField;
 	Button enterButton;
+	TextView availableGuitarText;
 	
 	float amountEntered;
 	String nameOfGuitarSelected;
@@ -42,7 +42,6 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		// setting my layout for this view
 		// setting up the layout of my program
         ll = new LinearLayout(this);
         ll.setOrientation(LinearLayout.VERTICAL);
@@ -71,38 +70,27 @@ public class MainActivity extends Activity {
 				// casting the amountEntered into a float value
 				amountEntered = Float.valueOf(amountField.getText().toString()).floatValue();
 		
+				// using a for loop to cycle through all my guitar names
 				for(int i = 0; i < guitarNames.length; i++)
 				{
 					float tempPriceFloat = Float.valueOf(Json.getPrice(guitarNames[i])).floatValue();
 					
-					Log.i("Yup", "" + tempPriceFloat);
 					if(amountEntered >= tempPriceFloat)
 					{
 						temporaryGuitarNames = Json.readJSON(guitarNames[i]);
-						Log.i("Ok", "" + temporaryGuitarNames);
+						//Log.i("Ok", "" + temporaryGuitarNames);
 					}
 				}
 				
+				availableGuitarText = (TextView) v;
+				availableGuitarText.setText(temporaryGuitarNames);
 			}
 		});
-
-		//Log.i("Ok", "" + temporaryGuitarNames);
 		
 		
-		TextView availableGuitarText = new TextView(this);
-		availableGuitarText.setText(temporaryGuitarNames);
+		availableGuitarText = new TextView(this);
 		ll.addView(availableGuitarText);
-		
-		
-		//String temporaryString = Json.readJSON("Jackson");
 
-		
-		//float tempPriceFloat = Float.valueOf(Json.getPrice("Jackson")).floatValue();
-		
-		
-		//tv.setText(temporaryString + tempPriceFloat);
-
-		
 		
 		setContentView(ll);
 	}
