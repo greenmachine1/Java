@@ -14,6 +14,7 @@ package com.Cory.week2project;
 
 
 
+import json.Json;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
@@ -33,6 +34,8 @@ public class MainActivity extends Activity {
 	Button enterButton;
 	
 	float amountEntered;
+	String nameOfGuitarSelected;
+	String[] guitarNames = {"Jackson", "Fender", "Gibson", "Ibanez"};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,14 +69,15 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				// casting the amountEntered into a float value
 				amountEntered = Float.valueOf(amountField.getText().toString()).floatValue();
-
+		
+				
+				for(int i = 0; i < guitarNames.length; i++)
+				{
+					
+				}
 			}
 		});
-		
-		if(amountEntered > 900.00)
-		{
-			
-		}
+
 		
 		
 		
