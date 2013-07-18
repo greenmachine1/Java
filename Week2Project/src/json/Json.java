@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import com.Cory.guitars.Guitars;
 
+// used to make the model, type, and price a json object
 public class Json {
 
 	public static JSONObject buildJSON() {
@@ -36,20 +37,19 @@ public class Json {
 	}
 	
 	
-	
+	// used to return the model and type of the guitar
 	public static String readJSON(String selected){
-		String result, model, type, price;
+		String result, model, type;
 		
 		JSONObject object = buildJSON();
 		
 		try {
 			model = object.getJSONObject("json").getJSONObject(selected).getString("model");
 			type = object.getJSONObject("json").getJSONObject(selected).getString("type");
-			price = object.getJSONObject("json").getJSONObject(selected).getString("price");
+			//price = object.getJSONObject("json").getJSONObject(selected).getString("price");
 			
 			result = "Model: "+ model + "\r\n" 
-					+"Type: " + type + "\r\n"
-					+"Price: "	+ price + "\r\n";
+					+"Type: " + type + "\r\n";
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,6 +58,23 @@ public class Json {
 		
 		
 		return result;
+	}
+	
+	// this is solely for returning the price of the guitar
+	public static String getPrice(String selected){
+		String priceReturn;
+		
+		JSONObject object = buildJSON();
+		
+		try {
+			priceReturn = object.getJSONObject("json").getJSONObject(selected).getString("price");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			priceReturn = e.toString();
+		}
+		
+		return priceReturn;
 	}
 	
 	

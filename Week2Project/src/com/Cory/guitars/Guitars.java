@@ -4,10 +4,10 @@ package com.Cory.guitars;
 // model, type, price
 // setting up my json data
 public enum Guitars {
-	Jackson("Randy Rhodes", "Left Handed", "$699.95"),
-	Fender("Stratocaster", "Right Handed", "$1299.95"),
-	Gibson("Explorer", "Left Handed", "$899.95"),
-	Ibanez("S Series", "Left Handed", "$799.95");
+	Jackson("Randy Rhodes", "Left Handed", "699.95"),
+	Fender("Stratocaster", "Right Handed", "1299.95"),
+	Gibson("Explorer", "Left Handed", "899.95"),
+	Ibanez("S Series", "Left Handed", "799.95");
 	
 	private final String model;
 	private final String type;

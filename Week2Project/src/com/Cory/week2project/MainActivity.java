@@ -36,20 +36,12 @@ public class MainActivity extends Activity {
 		
 		String temporaryString = Json.readJSON("Jackson");
 		
-		temporaryString.contains("$");
+		String tempPrice = Json.getPrice("Jackson");
+		
+		float tempPriceInteger = Float.valueOf(Json.getPrice("Jackson")).floatValue();
 		
 		
-		char[] newArray = temporaryString.toCharArray();
-		
-		
-		
-		
-		
-		if(temporaryString.contains("$")){
-			Log.i("Yes", "It does contain $");
-		}
-		
-		tv.setText(temporaryString);
+		tv.setText(temporaryString + tempPrice + tempPriceInteger);
 		
 		ll.addView(tv);
 		
