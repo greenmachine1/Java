@@ -18,32 +18,41 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
 
 public class MainActivity extends Activity {
 
+	
+	EditText amountField;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
+		// setting my layout for this view
 		LinearLayout ll = new LinearLayout(this);
 		LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		ll.setLayoutParams(lp);
 		
+		// creating a new textView
 		TextView tv = new TextView(this);
-		
-		String temporaryString = Json.readJSON("Jackson");
-		
-		String tempPrice = Json.getPrice("Jackson");
-		
-		float tempPriceInteger = Float.valueOf(Json.getPrice("Jackson")).floatValue();
-		
-		
-		tv.setText(temporaryString + tempPrice + tempPriceInteger);
-		
+		tv.setText("Please enter in the amount you wish to spend");
 		ll.addView(tv);
+		
+		// creating a box for the user to enter in an amount
+		amountField = new EditText(this);
+		ll.addView(amountField);
+		
+		//String temporaryString = Json.readJSON("Jackson");
+
+		
+		//float tempPriceFloat = Float.valueOf(Json.getPrice("Jackson")).floatValue();
+		
+		
+		//tv.setText(temporaryString + tempPriceFloat);
+
 		
 		
 		setContentView(ll);
