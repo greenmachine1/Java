@@ -87,6 +87,7 @@ public class MainActivity extends Activity {
 	public void getInfoFromApple(String enteredSearchText){
 		Log.i("Clicked", enteredSearchText);
 		
+		String baseURL = "https://itunes.apple.com/search?";
 		
 	}
 
