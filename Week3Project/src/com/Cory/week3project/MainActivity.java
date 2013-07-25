@@ -11,6 +11,8 @@ public class MainActivity extends Activity {
 	Context _context;
 	LinearLayout _appLayout;
 	
+	SearchForm _searchForm;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +22,15 @@ public class MainActivity extends Activity {
 		
 		_context = this;
 		
+		_searchForm = new SearchForm(_context, "Enter the name of a band", "Go");
+		
+		_appLayout.addView(_searchForm);
 		
 		
+		
+		
+		
+		setContentView(_appLayout);
 		
 	}
 
