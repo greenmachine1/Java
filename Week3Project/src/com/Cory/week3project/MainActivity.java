@@ -1,3 +1,12 @@
+/*
+ * Project		Week3Project
+ * 
+ * Package		com.Cory.week3project
+ * 
+ * @author		Cory Green
+ * 
+ * date			Jul 25, 2013
+ */
 package com.Cory.week3project;
 
 import com.Cory.lib.WebInfo;
@@ -24,6 +33,8 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+	
 		
 		// setting up my LinearLayout
 		_appLayout = new LinearLayout(this);
@@ -62,7 +73,7 @@ public class MainActivity extends Activity {
 		// adding _searchForm to my view
 		_appLayout.addView(_searchForm);
 		
-		// making it so the grid is beneith every thing
+		// making it so the grid is beneath every thing
 		_appLayout.setOrientation(LinearLayout.VERTICAL);
 		
 		setContentView(_appLayout);

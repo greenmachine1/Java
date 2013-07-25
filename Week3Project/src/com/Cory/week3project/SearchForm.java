@@ -1,3 +1,12 @@
+/*
+ * Project		Week3Project
+ * 
+ * Package		com.Cory.week3project
+ * 
+ * @author		Cory Green
+ * 
+ * date			Jul 25, 2013
+ */
 package com.Cory.week3project;
 
 import android.content.Context;

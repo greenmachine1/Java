@@ -1,3 +1,12 @@
+/*
+ * Project		Week3Project
+ * 
+ * Package		com.Cory.lib
+ * 
+ * @author		Cory Green
+ * 
+ * date			Jul 25, 2013
+ */
 package com.Cory.lib;
 
 import java.io.BufferedInputStream;
