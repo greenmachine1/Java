@@ -13,6 +13,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 //import org.json.JSONException;
 //import org.json.JSONObject;
 
@@ -99,8 +102,9 @@ public class MainActivity extends Activity {
 	public void getInfoFromApple(String enteredSearchText){
 		Log.i("Clicked", enteredSearchText);
 		
+		// creation of my URL
 		String baseURL = "https://itunes.apple.com/search?term=";
-		String withEnteredSearchText = baseURL + enteredSearchText + "&entity=musicArtist&limit=5";
+		String withEnteredSearchText = baseURL + enteredSearchText + "&entity=musicArtist&limit=1";
 		@SuppressWarnings("unused")
 		String qs;
 		
@@ -114,7 +118,6 @@ public class MainActivity extends Activity {
 		
 		URL finalURL;
 		try{
-			//finalURL = new URL(baseURL + "?q=" + qs + "&format=json");
 			
 			// dont actually need my UTF-8 involved in the url
 			finalURL = new URL(withEnteredSearchText);
@@ -129,6 +132,7 @@ public class MainActivity extends Activity {
 		
 	}
 	
+	// this actually sends out the request
 	private class infoRequest extends AsyncTask<URL, Void, String>{
 
 		@Override
@@ -141,6 +145,7 @@ public class MainActivity extends Activity {
 			return response;
 		}
 		
+		// this is what comes back!
 		protected void onPostExecute(String result){
 			Log.i("URL Response", result);
 			
