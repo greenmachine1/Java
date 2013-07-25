@@ -9,8 +9,19 @@
  */
 package com.Cory.week3project;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+
+//import org.json.JSONException;
+//import org.json.JSONObject;
+
+
+
 import com.Cory.lib.WebInfo;
 
+
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -20,6 +31,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
 
 public class MainActivity extends Activity {
 
@@ -87,8 +99,50 @@ public class MainActivity extends Activity {
 	public void getInfoFromApple(String enteredSearchText){
 		Log.i("Clicked", enteredSearchText);
 		
-		String baseURL = "https://itunes.apple.com/search?";
+		String baseURL = "https://itunes.apple.com/search?term=jack+johnson";
+		String qs;
 		
+		//setting up the UTF-8 based encoding
+		try{
+			qs = URLEncoder.encode(baseURL, "UTF-8");
+		}catch(Exception e){
+			Log.e("Bad Url", "Encoding problem");
+			qs = "";
+		}
+		
+		URL finalURL;
+		try{
+			//finalURL = new URL(baseURL + "?q=" + qs + "&format=json");
+			finalURL = new URL(baseURL);
+			infoRequest newRequest = new infoRequest();
+			newRequest.execute(finalURL);
+			
+		}catch(MalformedURLException e){
+			Log.e("Bad Url", "malformed URL");
+			finalURL = null;
+		}
+		
+		
+	}
+	
+	private class infoRequest extends AsyncTask<URL, Void, String>{
+
+		@Override
+		protected String doInBackground(URL... urls) {
+			String response = "";
+			for(URL url: urls){
+				response = WebInfo.getURLStringResponse(url);
+			}
+			
+			return response;
+		}
+		
+		protected void onPostExecute(String result){
+			Log.i("URL Response", result);
+			
+			
+			
+		}
 	}
 
 	@Override
