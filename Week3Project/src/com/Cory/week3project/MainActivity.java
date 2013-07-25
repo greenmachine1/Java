@@ -56,6 +56,10 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				Log.i("Button Pressed", "yes");
 				Log.i("Click handler",_searchForm.getField().getText().toString());
+				
+				// calls on the getInfoFromApple function and puts in the text
+				// from the searchForm
+				getInfoFromApple(_searchForm.getField().getText().toString());
 			}
 			
 		});
@@ -80,7 +84,11 @@ public class MainActivity extends Activity {
 		
 	}
 	
-
+	public void getInfoFromApple(String enteredSearchText){
+		Log.i("Clicked", enteredSearchText);
+		
+		
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
