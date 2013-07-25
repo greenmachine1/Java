@@ -2,13 +2,27 @@ package com.Cory.week3project;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.view.Menu;
+import android.widget.LinearLayout;
 
 public class MainActivity extends Activity {
 
+	Context _context;
+	LinearLayout _appLayout;
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		_appLayout = new LinearLayout(this);
+		
+		_context = this;
+		
+		
+		
+		
 	}
 
 	@Override
