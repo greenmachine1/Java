@@ -99,7 +99,9 @@ public class MainActivity extends Activity {
 	public void getInfoFromApple(String enteredSearchText){
 		Log.i("Clicked", enteredSearchText);
 		
-		String baseURL = "https://itunes.apple.com/search?term=jack+johnson";
+		String baseURL = "https://itunes.apple.com/search?term=";
+		String withEnteredSearchText = baseURL + enteredSearchText + "&entity=musicArtist&limit=5";
+		@SuppressWarnings("unused")
 		String qs;
 		
 		//setting up the UTF-8 based encoding
@@ -113,7 +115,9 @@ public class MainActivity extends Activity {
 		URL finalURL;
 		try{
 			//finalURL = new URL(baseURL + "?q=" + qs + "&format=json");
-			finalURL = new URL(baseURL);
+			
+			// dont actually need my UTF-8 involved in the url
+			finalURL = new URL(withEnteredSearchText);
 			infoRequest newRequest = new infoRequest();
 			newRequest.execute(finalURL);
 			
