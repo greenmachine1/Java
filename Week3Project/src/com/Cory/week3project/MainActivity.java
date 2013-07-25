@@ -1,5 +1,7 @@
 package com.Cory.week3project;
 
+import com.Cory.lib.WebInfo;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -16,6 +18,7 @@ public class MainActivity extends Activity {
 	LinearLayout _appLayout;
 	
 	SearchForm _searchForm;
+	Boolean _connected = false;
 	
 	
 	@Override
@@ -31,8 +34,6 @@ public class MainActivity extends Activity {
 		// calling on my SearchForm class
 		_searchForm = new SearchForm(_context, "Enter the name of a band", "Go");
 		
-		// adding _searchForm to my view
-		_appLayout.addView(_searchForm);
 		
 		// creating a button that gets the button within _searchForm
 		Button searchButton = _searchForm.getButton();
@@ -43,15 +44,32 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Log.i("Button Pressed", "yes");
-				
+				Log.i("Click handler",_searchForm.getField().getText().toString());
 			}
 			
 		});
 		
+		// Detect network connection
+		_connected = WebInfo.getConnectionStatus(_context);
+		if(_connected)
+		{
+			Log.i("Network Connection", WebInfo.getConnectionType(_context));
+		}
+				
+		
+		
+		
+		// adding _searchForm to my view
+		_appLayout.addView(_searchForm);
+		
+		// making it so the grid is beneith every thing
+		_appLayout.setOrientation(LinearLayout.VERTICAL);
 		
 		setContentView(_appLayout);
 		
 	}
+	
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
