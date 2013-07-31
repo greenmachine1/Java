@@ -12,6 +12,8 @@ package com.Cory.week4project;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 public class MainActivity extends Activity {
 
@@ -22,8 +24,15 @@ public class MainActivity extends Activity {
 		// takes the XML file created and presents it to the contentView
 		setContentView(R.layout.main_layout);
 		
+		Spinner spinner = (Spinner) findViewById(R.id.dropDown);
 		
+		// create an array adapter
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dropDownMenuArray, android.R.layout.simple_spinner_item);
 		
+		// specify the layout to use
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		
+		spinner.setAdapter(adapter);
 	}
 
 	@Override

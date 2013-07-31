@@ -4,5 +4,10 @@
     <string name="app_name">Week4Project</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
+    <string-array name="dropDownMenuArray">
+        <item>Artist</item>
+        <item>Band</item>
+        <item>Song</item>
+        <item>Title</item>
+    </string-array>
 </resources>
