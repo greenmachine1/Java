@@ -6,8 +6,8 @@
     <string name="hello_world">Hello world!</string>
     <string-array name="dropDownMenuArray">
         <item>Artist</item>
-        <item>Band</item>
         <item>Song</item>
-        <item>Title</item>
+        <item>Genre</item>
+        <item>Movie</item>
     </string-array>
 </resources>
