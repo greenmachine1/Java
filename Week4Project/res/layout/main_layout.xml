@@ -16,7 +16,12 @@
     	    android:layout_height="wrap_content"
     	    android:hint="Enter in a band you wish to look up"/>
         
-      
+      	<Spinner
+      	    android:id="@+id/dropDown"
+      	    android:layout_height="wrap_content"
+      	    android:layout_width="fill_parent"/>
+      	
+      	
     </LinearLayout>
     
     
