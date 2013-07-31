@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
 		// takes the XML file created and presents it to the contentView
 		setContentView(R.layout.main_layout);
 		
+		// setting the spinner
 		Spinner spinner = (Spinner) findViewById(R.id.dropDown);
 		
 		// create an array adapter
@@ -33,6 +34,10 @@ public class MainActivity extends Activity {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		
 		spinner.setAdapter(adapter);
+		
+		
+		
+		
 	}
 
 	@Override
