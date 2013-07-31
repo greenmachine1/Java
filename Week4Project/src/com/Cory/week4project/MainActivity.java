@@ -1,3 +1,12 @@
+/*
+ * Project		Week4Project
+ * 
+ * Package		com.Cory.week4project
+ * 
+ * @author		Cory Green
+ * 
+ * date			Jul 30, 2013
+ */
 package com.Cory.week4project;
 
 import android.os.Bundle;
@@ -10,6 +19,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		// takes the XML file created and presents it to the contentView
+		setContentView(R.layout.main_layout);
 		
 		
 		
