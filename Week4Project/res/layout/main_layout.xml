@@ -26,6 +26,15 @@
       	    android:layout_height="wrap_content"
       	    android:layout_width="wrap_content"
       	    android:text="Go"/> 
+      	    
+      	<!--  GridLayout
+      	    android:id="@+id/gridView"
+      	    android:layout_width="fill_parent"
+      	    android:layout_height="fill_parent"
+      	    android:numColumns="auto_fit"
+      	    android:layout_gravity="center">
+      	    
+      	</GridLayout-->
 
       	
    	

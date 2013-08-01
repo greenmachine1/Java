@@ -39,6 +39,8 @@ public class MainActivity extends Activity {
 	String userDropDownSelection;
 	String InputString;
 	
+	String returnedJsonResult;
+	
 	Boolean _connected = false;
 	
 	@Override
@@ -105,6 +107,11 @@ public class MainActivity extends Activity {
 					String inputString = editTextBox.getText().toString();
 				
 					getInfoFromApple(inputString, tempString);
+					
+					if(returnedJsonResult != null)
+					{
+						Log.i("yup", returnedJsonResult);
+					}
 				}
 			}
 		});
@@ -115,6 +122,8 @@ public class MainActivity extends Activity {
 		{
 			Log.i("Network Connection", WebInfo.getConnectionType(_context));
 		}
+		
+		
 				
 
 	}
@@ -165,7 +174,11 @@ public class MainActivity extends Activity {
 			
 		// this is what comes back!
 		protected void onPostExecute(String result){
-			Log.i("URL Response", result);		
+			//Log.i("URL Response", result);
+			
+			returnedJsonResult = result;
+			
+			
 		}
 	}
 
