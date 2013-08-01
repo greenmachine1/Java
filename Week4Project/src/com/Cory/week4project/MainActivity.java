@@ -11,6 +11,7 @@ package com.Cory.week4project;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -21,16 +22,38 @@ import android.widget.Spinner;
 
 public class MainActivity extends Activity {
 
+	
+	Context _context;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		
+		_context = this;
 		// takes the XML file created and presents it to the contentView
 		setContentView(R.layout.main_layout);
 		
 		// setting the spinner
 		Spinner spinner = (Spinner) findViewById(R.id.dropDown);
-		//spinner.setOnItemSelectedListener(this);
+		
+		// when a selection has been made in the spinner drop down, do this...
+		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int pos, long id) {
+				// TODO Auto-generated method stub
+				
+				Log.i("Clicked", (parent.getItemAtPosition(pos).toString()));
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		// create an array adapter
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dropDownMenuArray, android.R.layout.simple_spinner_item);
@@ -41,21 +64,6 @@ public class MainActivity extends Activity {
 		spinner.setAdapter(adapter);
 		
 
-	}
-	
-	public class SpinnerActivity extends Activity implements OnItemSelectedListener {
-	    
-	    public void onItemSelected(AdapterView<?> parent, View view, 
-	            int pos, long id) {
-	        // An item was selected. You can retrieve the selected item using
-	        // parent.getItemAtPosition(pos)
-	    	String resultFromSpinner = (parent.getItemAtPosition(pos).toString());
-	    	Log.i("Yes", resultFromSpinner);
-	    }
-
-	    public void onNothingSelected(AdapterView<?> parent) {
-	        // Another interface callback
-	    }
 	}
 
 	@Override
