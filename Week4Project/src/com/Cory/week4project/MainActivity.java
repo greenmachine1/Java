@@ -15,15 +15,21 @@ import android.content.Context;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 public class MainActivity extends Activity {
 
 	
 	Context _context;
+	
+	String userDropDownSelection;
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,12 +52,15 @@ public class MainActivity extends Activity {
 				
 				Log.i("Clicked", (parent.getItemAtPosition(pos).toString()));
 				
-			}
+				// putting the user selection into a string
+				userDropDownSelection = (parent.getItemAtPosition(pos).toString());
+				
 
+			}
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
 				// TODO Auto-generated method stub
-				
+				userDropDownSelection = "Artist";
 			}
 		});
 		
@@ -62,8 +71,20 @@ public class MainActivity extends Activity {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		
 		spinner.setAdapter(adapter);
-		
 
+		// getting the go button to do something
+		Button goButton = (Button) findViewById(R.id.goButton);
+		
+		goButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		
 	}
 
 	@Override
