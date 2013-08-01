@@ -13,6 +13,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.Cory.lib.WebInfo;
 //import com.Cory.week3project.MainActivity.infoRequest;
 
@@ -29,6 +32,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridLayout;
 import android.widget.Spinner;
 
 public class MainActivity extends Activity {
@@ -123,7 +127,7 @@ public class MainActivity extends Activity {
 			Log.i("Network Connection", WebInfo.getConnectionType(_context));
 		}
 		
-		
+		GridLayout gridLayout = (GridLayout) findViewById(R.id.gridView);
 				
 
 	}
@@ -175,6 +179,23 @@ public class MainActivity extends Activity {
 		// this is what comes back!
 		protected void onPostExecute(String result){
 			//Log.i("URL Response", result);
+			try {
+				String newResultsString;
+				
+				JSONObject json = new JSONObject(result);
+				//JSONObject results = json.getJSONObject("wrapperType");
+				//Log.i("yes", results.toString());
+				Log.i("Yes", result);
+				
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			
+			
+			
 			
 			returnedJsonResult = result;
 			
