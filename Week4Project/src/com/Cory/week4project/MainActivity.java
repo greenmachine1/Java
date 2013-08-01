@@ -9,8 +9,14 @@
  */
 package com.Cory.week4project;
 
-import com.Cory.lib.WebInfo;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
 
+import com.Cory.lib.WebInfo;
+//import com.Cory.week3project.MainActivity.infoRequest;
+
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -43,15 +49,7 @@ public class MainActivity extends Activity {
 		
 		// takes the XML file created and presents it to the contentView
 		setContentView(R.layout.main_layout);
-		
-		// Detect network connection
-		_connected = WebInfo.getConnectionStatus(_context);
-		if(_connected)
-		{
-			//Log.i("Network Connection", WebInfo.getConnectionType(_context));
-		}
-		
-		
+
 		
 		// setting the spinner
 		Spinner spinner = (Spinner) findViewById(R.id.dropDown);
@@ -98,18 +96,77 @@ public class MainActivity extends Activity {
 				String tempString = "";
 				if(userDropDownSelection != null){
 					tempString = userDropDownSelection;
+				
+				
+					//Log.i("Clicked Go", tempString);
+				
+					// gathering the user input
+					EditText editTextBox = (EditText) findViewById(R.id.searchField);
+					String inputString = editTextBox.getText().toString();
+				
+					getInfoFromApple(inputString, tempString);
 				}
-				
-				//Log.i("Clicked Go", tempString);
-				
-				// gathering the user input
-				EditText editTextBox = (EditText) findViewById(R.id.searchField);
-				String InputString = editTextBox.getText().toString();
-				
-				
 			}
 		});
+		
+		// Detect network connection
+		_connected = WebInfo.getConnectionStatus(_context);
+		if(_connected)
+		{
+			Log.i("Network Connection", WebInfo.getConnectionType(_context));
+		}
+				
 
+	}
+	public void getInfoFromApple(String enteredSearchText, String searchType){
+		Log.i("Clicked", enteredSearchText);
+		
+		// creation of my URL
+		String baseURL = "https://itunes.apple.com/search?term=";
+		String withEnteredSearchText = baseURL + enteredSearchText + "&entity=" +searchType+"&limit=1";
+		@SuppressWarnings("unused")
+		String qs;
+		
+		//setting up the UTF-8 based encoding
+		try{
+			qs = URLEncoder.encode(baseURL, "UTF-8");
+		}catch(Exception e){
+			Log.e("Bad Url", "Encoding problem");
+			qs = "";
+		}
+		
+		URL finalURL;
+		try{
+			
+			// dont actually need my UTF-8 involved in the url
+			finalURL = new URL(withEnteredSearchText);
+			infoRequest newRequest = new infoRequest();
+			newRequest.execute(finalURL);
+			
+		}catch(MalformedURLException e){
+			Log.e("Bad Url", "malformed URL");
+			finalURL = null;
+		}
+		
+		
+	}
+	// this actually sends out the request
+	private class infoRequest extends AsyncTask<URL, Void, String>{
+
+		@Override
+		protected String doInBackground(URL... urls) {
+			String response = "";
+			for(URL url: urls){
+				response = WebInfo.getURLStringResponse(url);
+			}
+				
+			return response;
+		}
+			
+		// this is what comes back!
+		protected void onPostExecute(String result){
+			Log.i("URL Response", result);		
+		}
 	}
 
 	
