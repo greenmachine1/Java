@@ -11,7 +11,11 @@ package com.Cory.week4project;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -26,6 +30,7 @@ public class MainActivity extends Activity {
 		
 		// setting the spinner
 		Spinner spinner = (Spinner) findViewById(R.id.dropDown);
+		//spinner.setOnItemSelectedListener(this);
 		
 		// create an array adapter
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dropDownMenuArray, android.R.layout.simple_spinner_item);
@@ -35,9 +40,22 @@ public class MainActivity extends Activity {
 		
 		spinner.setAdapter(adapter);
 		
-		
-		
-		
+
+	}
+	
+	public class SpinnerActivity extends Activity implements OnItemSelectedListener {
+	    
+	    public void onItemSelected(AdapterView<?> parent, View view, 
+	            int pos, long id) {
+	        // An item was selected. You can retrieve the selected item using
+	        // parent.getItemAtPosition(pos)
+	    	String resultFromSpinner = (parent.getItemAtPosition(pos).toString());
+	    	Log.i("Yes", resultFromSpinner);
+	    }
+
+	    public void onNothingSelected(AdapterView<?> parent) {
+	        // Another interface callback
+	    }
 	}
 
 	@Override
