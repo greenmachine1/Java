@@ -46,6 +46,10 @@ public class MainActivity extends Activity {
 	
 	String returnedJsonResult;
 	
+	String artistName;
+	String primaryGenre;
+	String artistLinkUrl;
+	
 	Boolean _connected = false;
 	
 	@Override
@@ -186,24 +190,37 @@ public class MainActivity extends Activity {
 				JSONObject json = new JSONObject(result);
 				JSONArray results = json.getJSONArray("results");
 				
-				String newStringThing = results.getJSONObject(0).getString("wrapperType").toString();
 				
-				Log.i("yes", newStringThing);
+				if(userDropDownSelection == "")
+				{
+					artistName = results.getJSONObject(0).getString("artistName").toString();
+					primaryGenre = results.getJSONObject(0).getString("primaryGenreName").toString();
+					artistLinkUrl = results.getJSONObject(0).getString("artistLinkUrl").toString();
+				}
+				else if (userDropDownSelection == "")
+				{
+				
+				}
+				else if (userDropDownSelection == "")
+				{
+					
+				}
+				else if (userDropDownSelection == "")
+				{
+					
+				}
+				Log.i("yes", artistName);
+				Log.i("Yes", primaryGenre);
+				Log.i("yes", artistLinkUrl);
 				Log.i("Yes", result);
 				
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				Log.e("Nope", "No such file");
 			}
-			
-			
-			
-			
-			
-			
+		
 			returnedJsonResult = result;
-			
-			
 		}
 
 		private JSONObject newJSONObject(JSONArray results) {
