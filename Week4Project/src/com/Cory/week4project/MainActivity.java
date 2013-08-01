@@ -186,7 +186,7 @@ public class MainActivity extends Activity {
 				JSONObject json = new JSONObject(result);
 				JSONArray results = json.getJSONArray("results");
 				
-				String newStringThing = results.getJSONObject(0).getJSONObject("wrapperType").toString();
+				String newStringThing = results.getJSONObject(0).getString("wrapperType").toString();
 				
 				Log.i("yes", newStringThing);
 				Log.i("Yes", result);
