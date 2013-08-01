@@ -49,6 +49,9 @@ public class MainActivity extends Activity {
 	String artistName;
 	String primaryGenre;
 	String artistLinkUrl;
+	String collectionName;
+	String trackCount;
+	String collectionPrice;
 	
 	Boolean _connected = false;
 	
@@ -81,7 +84,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
 				// TODO Auto-generated method stub
-				userDropDownSelection = "Artist";
+				userDropDownSelection = "musicArtist";
 			}
 		});
 		
@@ -190,29 +193,28 @@ public class MainActivity extends Activity {
 				JSONObject json = new JSONObject(result);
 				JSONArray results = json.getJSONArray("results");
 				
-				
-				if(userDropDownSelection == "")
-				{
 					artistName = results.getJSONObject(0).getString("artistName").toString();
 					primaryGenre = results.getJSONObject(0).getString("primaryGenreName").toString();
 					artistLinkUrl = results.getJSONObject(0).getString("artistLinkUrl").toString();
-				}
-				else if (userDropDownSelection == "")
-				{
+					
+					if(results.getJSONObject(0).getString("collectionName").toString() != null)
+					{
+						collectionName = results.getJSONObject(0).getString("collectionName").toString();
+						trackCount = results.getJSONObject(0).getString("trackCount").toString();
+						collectionPrice = results.getJSONObject(0).getString("collectionPrice").toString();
+					}
+					
+					Log.i("yes", artistName);
+					Log.i("Yes", primaryGenre);
+					Log.i("yes", artistLinkUrl);
+					//Log.i("yes", collectionName);
+					//Log.i("yes", trackCount);
+					//Log.i("yes", collectionPrice);
 				
-				}
-				else if (userDropDownSelection == "")
-				{
-					
-				}
-				else if (userDropDownSelection == "")
-				{
-					
-				}
-				Log.i("yes", artistName);
-				Log.i("Yes", primaryGenre);
-				Log.i("yes", artistLinkUrl);
-				Log.i("Yes", result);
+				//Log.i("yes", artistName);
+				//Log.i("Yes", primaryGenre);
+				//Log.i("yes", artistLinkUrl);
+				//Log.i("Yes", result);
 				
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
