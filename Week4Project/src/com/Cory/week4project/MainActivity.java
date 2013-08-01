@@ -186,10 +186,9 @@ public class MainActivity extends Activity {
 				JSONObject json = new JSONObject(result);
 				JSONArray results = json.getJSONArray("results");
 				
-				JSONObject drillDown = newJSONObject(results);
-				JSONObject object = drillDown.getJSONObject("wrapperType");
+				String newStringThing = results.getJSONObject(0).getJSONObject("wrapperType").toString();
 				
-				Log.i("yes", object.toString());
+				Log.i("yes", newStringThing);
 				Log.i("Yes", result);
 				
 			} catch (JSONException e) {
