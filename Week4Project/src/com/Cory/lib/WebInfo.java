@@ -1,4 +1,4 @@
-package lib;
+package com.Cory.lib;
 
 import java.io.BufferedInputStream;
 import java.net.URL;

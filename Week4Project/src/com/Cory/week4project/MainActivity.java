@@ -9,6 +9,8 @@
  */
 package com.Cory.week4project;
 
+import com.Cory.lib.WebInfo;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -25,19 +27,31 @@ import android.widget.Spinner;
 
 public class MainActivity extends Activity {
 
-	
+	// global variables
 	Context _context;
 	
 	String userDropDownSelection;
 	String InputString;
 	
+	Boolean _connected = false;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		_context = this;		
+		_context = this;	
+		
 		// takes the XML file created and presents it to the contentView
 		setContentView(R.layout.main_layout);
+		
+		// Detect network connection
+		_connected = WebInfo.getConnectionStatus(_context);
+		if(_connected)
+		{
+			//Log.i("Network Connection", WebInfo.getConnectionType(_context));
+		}
+		
+		
 		
 		// setting the spinner
 		Spinner spinner = (Spinner) findViewById(R.id.dropDown);
@@ -54,8 +68,6 @@ public class MainActivity extends Activity {
 				
 				// putting the user selection into a string
 				userDropDownSelection = (parent.getItemAtPosition(pos).toString());
-				
-
 			}
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
@@ -63,6 +75,8 @@ public class MainActivity extends Activity {
 				userDropDownSelection = "Artist";
 			}
 		});
+		
+		
 		
 		// create an array adapter
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dropDownMenuArray, android.R.layout.simple_spinner_item);
@@ -95,8 +109,7 @@ public class MainActivity extends Activity {
 				
 			}
 		});
-		
-		
+
 	}
 
 	
