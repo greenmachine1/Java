@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 public class MainActivity extends Activity {
@@ -28,14 +29,13 @@ public class MainActivity extends Activity {
 	Context _context;
 	
 	String userDropDownSelection;
-	
+	String InputString;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		
-		_context = this;
+		_context = this;		
 		// takes the XML file created and presents it to the contentView
 		setContentView(R.layout.main_layout);
 		
@@ -79,7 +79,19 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
+				@SuppressWarnings("unused")
+				String tempString = "";
+				if(userDropDownSelection != null){
+					tempString = userDropDownSelection;
+				}
+				
+				//Log.i("Clicked Go", tempString);
+				
+				// gathering the user input
+				EditText editTextBox = (EditText) findViewById(R.id.searchField);
+				String InputString = editTextBox.getText().toString();
+				
 				
 			}
 		});
@@ -87,6 +99,11 @@ public class MainActivity extends Activity {
 		
 	}
 
+	
+	
+	
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
