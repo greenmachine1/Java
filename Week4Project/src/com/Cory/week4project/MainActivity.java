@@ -197,12 +197,11 @@ public class MainActivity extends Activity {
 					primaryGenre = results.getJSONObject(0).getString("primaryGenreName").toString();
 					artistLinkUrl = results.getJSONObject(0).getString("artistLinkUrl").toString();
 					
-					if(results.getJSONObject(0).getString("collectionName").toString() != null)
-					{
+					/*
 						collectionName = results.getJSONObject(0).getString("collectionName").toString();
 						trackCount = results.getJSONObject(0).getString("trackCount").toString();
 						collectionPrice = results.getJSONObject(0).getString("collectionPrice").toString();
-					}
+					*/
 					
 					Log.i("yes", artistName);
 					Log.i("Yes", primaryGenre);
