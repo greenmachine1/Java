@@ -13,6 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -127,7 +128,7 @@ public class MainActivity extends Activity {
 			Log.i("Network Connection", WebInfo.getConnectionType(_context));
 		}
 		
-		GridLayout gridLayout = (GridLayout) findViewById(R.id.gridView);
+		//GridLayout gridLayout = (GridLayout) findViewById(R.id.gridView);
 				
 
 	}
@@ -183,8 +184,12 @@ public class MainActivity extends Activity {
 				String newResultsString;
 				
 				JSONObject json = new JSONObject(result);
-				//JSONObject results = json.getJSONObject("wrapperType");
-				//Log.i("yes", results.toString());
+				JSONArray results = json.getJSONArray("results");
+				
+				JSONObject drillDown = newJSONObject(results);
+				JSONObject object = drillDown.getJSONObject("wrapperType");
+				
+				Log.i("yes", object.toString());
 				Log.i("Yes", result);
 				
 			} catch (JSONException e) {
@@ -200,6 +205,11 @@ public class MainActivity extends Activity {
 			returnedJsonResult = result;
 			
 			
+		}
+
+		private JSONObject newJSONObject(JSONArray results) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 	}
 
